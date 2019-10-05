@@ -1,0 +1,46 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Zurich
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+http:
+  base_url: !secret config_http_base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+
+logger:
+  default: error
+  
+#zwave:
+#  usb_path: /dev/ttyUSB0
+
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /config/zigbee.db
+
+# Discover some devices automatically
+discovery:
+
+sensor: !include_dir_list sensors/
+
+ios:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+api:
