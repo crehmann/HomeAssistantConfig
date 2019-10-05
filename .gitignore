@@ -10,9 +10,12 @@
 !docs/images/*.png
 !docs/images/*.jpg
 
+# Folders
+!sensors/
+
 # Explicitly allow YAML files
+
 !*.yaml
-!**/*.yaml
 
 # Any scripts that I may write
 !*.sh
