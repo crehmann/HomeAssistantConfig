@@ -1,0 +1,16 @@
+homeassistant:
+  customize:
+    package.node_anchors:
+        package: 'Hallway'
+
+light:
+  - platform: group
+    name: Hallway Lights
+    entities:
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fe301068_1
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fe3bb853_1
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fe357ebb_1
+  - platform: group
+    name: Office Lights
+    entities:
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fe3fc7bd_1

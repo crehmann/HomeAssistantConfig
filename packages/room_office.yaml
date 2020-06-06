@@ -1,0 +1,35 @@
+homeassistant:
+  customize:
+    package.node_anchors:
+        package: 'Office'
+
+group:
+  office-windows:
+      name: Office Windows
+      entities:
+        - binary_sensor.lumi_lumi_sensor_magnet_aq2_03e748e7_1_6
+
+light:
+  - platform: group
+    name: Office Lights
+    entities:
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fe3fc7bd_1
+      - light.philips_ltg002_41584608_level_light_color_on_off
+      - light.philips_ltg002_9db64e08_level_light_color_on_off
+
+switch:
+  - platform: flux
+    lights:
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fe3fc7bd_1
+      - light.philips_ltg002_41584608_level_light_color_on_off
+      - light.philips_ltg002_9db64e08_level_light_color_on_off
+    name: Flux - Office
+    start_time: '06:00'
+    stop_time: '19:45'
+    start_colortemp: 5500
+    sunset_colortemp: 1000
+    stop_colortemp: 1000
+    mode: mired
+    disable_brightness_adjust: True
+    transition: 3
+    interval: 600

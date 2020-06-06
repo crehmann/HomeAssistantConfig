@@ -11,7 +11,8 @@
 !docs/images/*.jpg
 
 # Folders
-!sensors/
+!packages/
+!themes/
 
 # Explicitly allow YAML files
 

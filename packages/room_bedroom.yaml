@@ -1,0 +1,11 @@
+homeassistant:
+  customize:
+    package.node_anchors:
+        package: 'Bedroom'
+
+group:
+  bedroom-windows:
+    name: Bedroom Windows
+    entities:
+      - binary_sensor.lumi_lumi_sensor_magnet_aq2_03e748af_1_6
+      - binary_sensor.lumi_lumi_sensor_magnet_aq2_03e7489a_1_6

@@ -1,0 +1,10 @@
+homeassistant:
+  customize:
+    package.node_anchors:
+        package: 'Kitchen'
+
+group:
+  kitchen-windows:
+      name: Kitchen Windows
+      entities:
+        - binary_sensor.lumi_lumi_sensor_magnet_aq2_0414878e_1_6

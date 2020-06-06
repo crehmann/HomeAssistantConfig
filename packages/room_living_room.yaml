@@ -1,0 +1,11 @@
+homeassistant:
+  customize:
+    package.node_anchors:
+        package: 'Living Room'
+group:
+  livingroom-windows:
+      name: Living Room Windows
+      entities:
+        - binary_sensor.lumi_lumi_sensor_magnet_aq2_0321ab35_1_6
+        - binary_sensor.lumi_lumi_sensor_magnet_0358c5d5_1_6
+        - binary_sensor.lumi_lumi_sensor_magnet_03240927_1_6

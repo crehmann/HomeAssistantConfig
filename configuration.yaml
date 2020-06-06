@@ -1,46 +1,44 @@
+#################################################################
+#                                                               #
+#           Home Assistant Main Configuration File              #
+#                                                               #
+#################################################################
+
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   elevation: !secret home_elevation
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Zurich
-  # Customization file
-  customize: !include customize.yaml
+  packages: !include_dir_named packages
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
+frontend:
+  themes: !include_dir_merge_named themes/
+
 default_config:
+
+discovery:
 
 http:
   base_url: !secret config_http_base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
+api:
 
-logger:
-  default: error
-  
-#zwave:
-#  usb_path: /dev/ttyUSB0
+ios:
 
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
+  
+#zwave:
+#  usb_path: /dev/ttyUSB0
 
-# Discover some devices automatically
-discovery:
+logger:
+  default: error
 
-sensor: !include_dir_list sensors/
-
-ios:
-
-# Text to speech
-tts:
-  - platform: google_translate
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-api:
+recorder:
+  purge_interval: 1
+  purge_keep_days: 2
